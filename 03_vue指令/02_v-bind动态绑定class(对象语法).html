@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+
+<!-- 
+  v-bind动态绑定class属性
+    1. 可以绑定一个对象, 根据对象属性的变化来加载不同的class
+    2. 可以绑定一个method, 根据返回值来加载不同class
+    3. 可以绑定一个数组, 数组的内容从服务器请求
+ -->
+
+<body>
+  <div id="app">
+    <h2 v-bind:class="{red: is_red, black: is_black}">{{msg}}</h2>
+    <h2 v-bind:class="getClasses()">{{msg}}</h2>
+    <button v-on:click="change()">改变颜色</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        msg: "hello world!",
+        is_red: true,
+        is_black: true
+      },
+      methods: {
+        change: function () {
+          this.is_red = !this.is_red
+        },
+        getClasses: function () {
+          return { red: this.is_red, black: this.is_black };
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

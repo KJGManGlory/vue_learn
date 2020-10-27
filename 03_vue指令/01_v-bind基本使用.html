@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 
+  v-bind指令: 
+    1. 用于动态绑定属性, src, url, 样式等属性值
+    2. 语法糖: 直接使用一个冒号代替v-bind
+ -->
+
+<body>
+  <div id="app">
+    <a v-bind:href="url">百度一下</a>
+    <a v-bind:href="google_url">谷歌一下</a>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        url: "http://www.baidu.com",
+        google_url: "http://www.google.com"
+      }
+    });
+  </script>
+</body>
+
+</html>

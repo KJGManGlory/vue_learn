@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- v-cloak: 数据延迟加载时进行隐藏 -->
+  <div id="app" v-cloak>{{msg}}</div>
+  <script src="../js/vue.js"></script>
+  <script>
+    setInterval(function () {
+      let app = new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello World!"
+        }
+      });
+    }, 3000)
+
+  </script>
+</body>
+
+</html>

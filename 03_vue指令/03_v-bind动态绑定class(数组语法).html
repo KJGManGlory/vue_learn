@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .red {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2 v-bind:class="[is_red, is_black]">{{msg}}</h2>
+    <h2 v-bind:class="getClasses()">{{msg}}</h2>
+    <button v-on:click="change()">改变颜色</button>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        msg: "hello world!",
+        is_red: "red",
+        is_black: "black"
+      },
+      methods: {
+        change: function () {
+          this.is_red = !this.is_red
+        },
+        getClasses: function () {
+          return { red: this.is_red, black: this.is_black };
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

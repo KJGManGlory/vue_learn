@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- v-html: 将数据中的内容进行HTML解析后展示 -->
+  <div id="app">
+    <div>{{msg}}</div>
+    <div v-html="msg"></div>
+    <div v-text="msg"></div>
+  </div>
+  <script src="../js/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data: {
+        msg: "<a href='https://www.baidu.html'>百度一下</a>"
+      }
+    });
+  </script>
+</body>
+
+</html>
